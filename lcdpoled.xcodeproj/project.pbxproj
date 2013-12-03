@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		33C6180C184DB3080007ADD0 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 33C6180B184DB3080007ADD0 /* main.c */; };
 		33C6180E184DB3080007ADD0 /* lcdpoled.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 33C6180D184DB3080007ADD0 /* lcdpoled.1 */; };
+		33C61816184DB37D0007ADD0 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C61815184DB37D0007ADD0 /* CoreFoundation.framework */; };
+		33C61818184DB3830007ADD0 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C61817184DB3830007ADD0 /* IOKit.framework */; };
+		33C6181A184DB3B30007ADD0 /* libLCPD-mac.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C61819184DB3B30007ADD0 /* libLCPD-mac.dylib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +31,10 @@
 		33C61808184DB3080007ADD0 /* lcdpoled */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = lcdpoled; sourceTree = BUILT_PRODUCTS_DIR; };
 		33C6180B184DB3080007ADD0 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		33C6180D184DB3080007ADD0 /* lcdpoled.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = lcdpoled.1; sourceTree = "<group>"; };
+		33C61814184DB34F0007ADD0 /* usblcpdmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = usblcpdmac.h; sourceTree = "<group>"; };
+		33C61815184DB37D0007ADD0 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		33C61817184DB3830007ADD0 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		33C61819184DB3B30007ADD0 /* libLCPD-mac.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libLCPD-mac.dylib"; path = "lcdpoled/libLCPD-mac.dylib"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +42,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33C61816184DB37D0007ADD0 /* CoreFoundation.framework in Frameworks */,
+				33C61818184DB3830007ADD0 /* IOKit.framework in Frameworks */,
+				33C6181A184DB3B30007ADD0 /* libLCPD-mac.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +54,9 @@
 		33C617FF184DB3080007ADD0 = {
 			isa = PBXGroup;
 			children = (
+				33C61819184DB3B30007ADD0 /* libLCPD-mac.dylib */,
+				33C61817184DB3830007ADD0 /* IOKit.framework */,
+				33C61815184DB37D0007ADD0 /* CoreFoundation.framework */,
 				33C6180A184DB3080007ADD0 /* lcdpoled */,
 				33C61809184DB3080007ADD0 /* Products */,
 			);
@@ -60,6 +73,7 @@
 		33C6180A184DB3080007ADD0 /* lcdpoled */ = {
 			isa = PBXGroup;
 			children = (
+				33C61814184DB34F0007ADD0 /* usblcpdmac.h */,
 				33C6180B184DB3080007ADD0 /* main.c */,
 				33C6180D184DB3080007ADD0 /* lcdpoled.1 */,
 			);
@@ -195,6 +209,10 @@
 		33C61812184DB3080007ADD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jimw/rm/lcdpoled/lcdpoled,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -202,6 +220,10 @@
 		33C61813184DB3080007ADD0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/jimw/rm/lcdpoled/lcdpoled,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
