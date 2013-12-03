@@ -23,12 +23,12 @@ int deviceNumber;
 
 
 
-int write_pd_text(LCPDDeviceDescriptorRef descr, char* text, int len)
+int write_pd_text(LCPDDeviceDescriptorRef descr, char* text, long len)
 {
 	char buf[128];
 	strncpy(buf, text,len);
 	
-	if(LCPDWrite(descr, buf, len)) 
+	if(LCPDWrite(descr, buf, (UInt32)len))
 	{
 		fprintf(stderr,"--Error writing text\n");
 		return -1;
@@ -37,7 +37,7 @@ int write_pd_text(LCPDDeviceDescriptorRef descr, char* text, int len)
 	return 0;
 }
 
-void DisplayText(char *text, int len)
+void DisplayText(char *text, long len)
 {	
 	LCPDGetDeviceDescriptors(&deviceGot, &deviceNumber);
 	if (!deviceNumber)
@@ -74,7 +74,7 @@ void receiveData(CFSocketRef s,
 				 void *info)  
 {
     CFDataRef df = (CFDataRef) data;
-    int len = CFDataGetLength(df);
+    CFIndex len = CFDataGetLength(df);
     if(len <= 0) return;
     
     UInt8 buffer[len];
