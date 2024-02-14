@@ -19,6 +19,16 @@ tested.
   [this](https://www.rust-lang.org/tools/install) guide.
 * run `cargo install lcdpoled`
 
+### Access to USB as a regular user on Linux
+
+Your mileage may vary, but to grant myself access to the USB device as an
+ordinary user on a Raspberry Pi system, I needed to create
+`/etc/udev/rules.d/50-local.rules` with the following line:
+
+```
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="0fa8", ATTRS{idProduct}=="a090", GROUP="users", MODE="0666"
+```
+
 ## License
 
 Licensed under either of
